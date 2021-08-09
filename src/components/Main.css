@@ -1,0 +1,83 @@
+.loading {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.main {
+  flex: 1;
+}
+
+.main .main__header {
+  padding: 10px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f4a261;
+  color: #222;
+  text-transform: capitalize;
+}
+
+.main .main__buttons {
+  margin: 15px;
+}
+
+.main .main__buttons .addBtn > button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  background-color: #2a9d8f;
+  color: #fff;
+  padding: 10px 15px;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  width: 150px;
+  font-size: 1.3rem;
+  font-weight: bold;
+  transition: 200ms ease-in-out;
+  -webkit-transition: 200ms ease-in-out;
+  -moz-transition: 200ms ease-in-out;
+  -ms-transition: 200ms ease-in-out;
+  -o-transition: 200ms ease-in-out;
+}
+
+.main .main__buttons .addBtn > button:hover {
+  background-color: #228276;
+}
+
+.main .main__buttons .addBtn > button .addBtnIcon {
+  font-size: 1.7rem;
+}
+
+.main .main__items {
+  margin: 15px;
+}
+
+.main .main__items .item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 15px;
+}
+
+.main .main__items .item .itemNameContainer {
+  cursor: pointer;
+  width: 100%;
+}
+
+.main .main__items .item .itemName {
+  font-size: 1.1rem;
+  padding: 5px 0;
+  margin-bottom: 5px;
+  border-bottom: 1px solid #ccc;
+}
+
+.main .main__items .item .item__timestamp {
+  font-size: 0.7rem;
+  font-weight: 500;
+}

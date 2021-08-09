@@ -1,0 +1,62 @@
+.sidebar {
+  background-color: #fff;
+  box-shadow: 1px 1px 2px #0000002b;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+  padding-top: 10px;
+  transition: 200ms ease-in-out;
+  -webkit-transition: 200ms ease-in-out;
+  -moz-transition: 200ms ease-in-out;
+  -ms-transition: 200ms ease-in-out;
+  -o-transition: 200ms ease-in-out;
+}
+
+.sidebar.sidebar--open {
+  width: 200px;
+}
+
+.sidebar .sidebar__header {
+  align-self: flex-end;
+}
+
+.sidebar .sidebar__header .icon {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.sidebar .sidebar__header .header__btn {
+  transition: 200ms ease-in-out;
+  -webkit-transition: 200ms ease-in-out;
+  -moz-transition: 200ms ease-in-out;
+  -ms-transition: 200ms ease-in-out;
+  -o-transition: 200ms ease-in-out;
+}
+
+.sidebar .sidebar__header .header__btn:hover {
+  transform: scale(0.98);
+  -webkit-transform: scale(0.98);
+  -moz-transform: scale(0.98);
+  -ms-transform: scale(0.98);
+  -o-transform: scale(0.98);
+}
+
+.sidebar .sidebar__content {
+  width: 100%;
+}
+
+.sidebar .sidebar__content .sidebar__stockName {
+  cursor: pointer;
+  padding: 5px 10px;
+  margin-bottom: 5px;
+}
+
+.sidebar__stockName.active {
+  background-color: #f4a261;
+}
+
+.sidebar__stockName > h4:hover {
+  text-decoration: underline;
+}

@@ -1,0 +1,80 @@
+.itemModifyModal {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  box-shadow: 2px 2px 20px rgb(0 0 0 / 20%);
+  z-index: 100;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.itemModifyModal__container {
+  background-color: #fefefe;
+  width: 80%;
+  height: 30%;
+  margin: 15% auto;
+}
+
+.itemModifyModal__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.itemModifyModal__closeBtn {
+  background-color: transparent;
+  padding: 5px;
+}
+
+.itemModifyModal__content {
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.itemModifyModal__content > form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  grid-gap: 15px;
+  gap: 15px;
+  width: 40%;
+}
+
+.itemModifyModal__inputContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+
+.itemModifyModal__input {
+  outline: none;
+  border: none;
+  background-color: #eee;
+  height: 30px;
+  text-align: center;
+  cursor: pointer;
+  font-size: 1.2rem;
+}
+
+.itemModifyModal__modifyBtn {
+  padding: 10px 15px;
+  width: 100%;
+  background-color: #03a9f4;
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.itemModifyModal__modifyBtn:hover {
+  background-color: #0880b8;
+}

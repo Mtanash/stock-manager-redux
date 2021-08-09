@@ -1,0 +1,160 @@
+.itemPreview {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding-top: 25px;
+}
+
+.itemPreview .item__name {
+  font-size: 2rem;
+  position: relative;
+}
+
+.itemPreview .item__name::before {
+  content: "";
+  position: absolute;
+  width: 150%;
+  height: 4px;
+  background-color: #e76f51;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+}
+
+.itemPreview .item__name::after {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background-color: white;
+  border: 2px solid #e76f51;
+  bottom: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+}
+
+.itemPreview .itemPreview__addEntryBtn {
+  margin-top: 30px;
+  border: 3px solid;
+  border-color: #264653;
+  background-color: transparent;
+  color: #000;
+  padding: 10px 15px;
+  font-size: 1rem;
+  transition: 150ms ease-in-out;
+  -webkit-transition: 150ms ease-in-out;
+  -moz-transition: 150ms ease-in-out;
+  -ms-transition: 150ms ease-in-out;
+  -o-transition: 150ms ease-in-out;
+}
+
+.itemPreview .itemPreview__addEntryBtn:hover {
+  background-color: #264653;
+  color: #fff;
+}
+
+.itemPreview .itemPreview__addEntryBtn:active {
+  transform: translateY(1px);
+  -webkit-transform: translateY(1px);
+  -moz-transform: translateY(1px);
+  -ms-transform: translateY(1px);
+  -o-transform: translateY(1px);
+}
+
+.itemPreview .item__data {
+  margin: 40px 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  width: 90%;
+}
+
+.itemPreview .item__dateContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 10px;
+  background-color: #e9c46a;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  font-size: 1.25rem;
+}
+
+.itemPreview .item__info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.itemPreview .item__timestamp {
+  font-size: 0.8rem;
+  color: #333;
+}
+
+.itemPreview .item__buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+
+.itemPreview .item__deleteBtn:hover,
+.itemPreview .item__deleteBtn:focus {
+  color: red;
+}
+
+.itemPreview .item__add,
+.itemPreview .item__subtract {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  background-color: transparent;
+  border: 2px solid;
+  border-color: #264653;
+  padding: 5px;
+  color: black;
+  transition: 150ms ease-in-out;
+  -webkit-transition: 150ms ease-in-out;
+  -moz-transition: 150ms ease-in-out;
+  -ms-transition: 150ms ease-in-out;
+  -o-transition: 150ms ease-in-out;
+  cursor: pointer;
+}
+
+.itemPreview .item__deleteBtn,
+.itemPreview .item__addBtn,
+.itemPreview .item__subtractBtn {
+  justify-self: flex-end;
+  background-color: transparent;
+  font-size: 1.2rem;
+  color: inherit;
+  height: 25px;
+}
+
+.itemPreview .item__add:hover,
+.itemPreview .item__subtract:hover {
+  background-color: #264653;
+  color: #fff;
+}
