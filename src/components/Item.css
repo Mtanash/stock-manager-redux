@@ -76,6 +76,12 @@
   -o-transform: translateY(1px);
 }
 
+.itemPreview .itemPreview__totalCount {
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin-top: 15px;
+}
+
 .itemPreview .item__data {
   margin: 40px 15px;
   display: flex;
