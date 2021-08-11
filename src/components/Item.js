@@ -1,5 +1,5 @@
 // react imports
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 // modules imports
 import Modal from "./Modal";
@@ -36,6 +36,8 @@ function Item() {
   const modalIsOpen = useSelector(selectModalIsOpen);
   const AddEntryModalIsOpen = useSelector(selectAddEntryModalIsOpen);
 
+  const [totalCount, setTotalCount] = useState(12);
+
   const dispatch = useDispatch();
 
   const deleteItem = (dateId) => {
@@ -49,18 +51,42 @@ function Item() {
       });
   };
 
+  const getTotalCount = () => {
+    setTotalCount(0);
+    let total = 0;
+    if (data) {
+      data.forEach((dataPiece) => {
+        total += parseInt(dataPiece.itemCount);
+      });
+    } else {
+      total = 0;
+    }
+    setTotalCount(total);
+  };
+
+  useEffect(() => {
+    getTotalCount();
+  }, [data]);
+
   return (
     <div className="itemPreview">
       {modalIsOpen && <Modal />}
       {AddEntryModalIsOpen && <AddEntryModal />}
       <h2 className="item__name">{itemName}</h2>
       {data && (
-        <button
-          className="itemPreview__addEntryBtn"
-          onClick={() => dispatch(setAddEntryModalIsOpen(true))}
-        >
-          Add new entry in <span>{itemName}</span>
-        </button>
+        <>
+          <button
+            className="itemPreview__addEntryBtn"
+            onClick={() => dispatch(setAddEntryModalIsOpen(true))}
+          >
+            Add new entry in <span>{itemName}</span>
+          </button>
+          {totalCount > 0 && (
+            <p className="itemPreview__totalCount">
+              Total {itemName} amount : {totalCount}
+            </p>
+          )}
+        </>
       )}
       <div className="item__data">
         {data?.map((dataPiece) => {
