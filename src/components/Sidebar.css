@@ -12,6 +12,7 @@
   -moz-transition: 200ms ease-in-out;
   -ms-transition: 200ms ease-in-out;
   -o-transition: 200ms ease-in-out;
+  min-height: calc(100% - 73px);
 }
 
 .sidebar.sidebar--open {

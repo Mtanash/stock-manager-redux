@@ -11,13 +11,15 @@ import Item from "./Item";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 // redux imports
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { selectStocks } from "../features/stockSlice";
 import { selectLoading } from "../features/appSlice";
+import { setSearchPanelIsOpen } from "../features/searchSlice";
 
 function App() {
   const loading = useSelector(selectLoading);
   const stocks = useSelector(selectStocks);
+  const dispatch = useDispatch();
 
   if (loading) {
     return (
@@ -31,7 +33,14 @@ function App() {
     } else {
       return (
         <Router>
-          <div className="app">
+          <div
+            className="app"
+            onClick={(e) => {
+              if (e.target.className !== "main__headerSearchInput") {
+                dispatch(setSearchPanelIsOpen(false));
+              }
+            }}
+          >
             <Header />
             <div className="app__body">
               <Sidebar />

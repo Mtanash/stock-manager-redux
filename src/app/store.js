@@ -3,6 +3,7 @@ import stockReducer from "../features/stockSlice";
 import addModalReducer from "../features/addModalSlice";
 import itemSlice from "../features/itemSlice";
 import appSlice from "../features/appSlice";
+import searchSlice from "../features/searchSlice";
 
 export const store = configureStore({
   reducer: {
@@ -10,5 +11,6 @@ export const store = configureStore({
     addModal: addModalReducer,
     item: itemSlice,
     app: appSlice,
+    search: searchSlice,
   },
 });

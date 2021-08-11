@@ -1,0 +1,37 @@
+.searchResultPanel {
+  position: absolute;
+  background-color: #ddd;
+  width: 100%;
+  height: fit-content;
+  top: 32px;
+  padding: 10px 0;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.searchResultPanel .searchResultPanel__container {
+  margin: 10px 0;
+  margin-left: 40px;
+}
+
+.searchResultPanel .searchResultPanel__container .searchResultPanel__name {
+  cursor: pointer;
+  padding: 5px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  transition: 200ms ease-in-out;
+  -webkit-transition: 200ms ease-in-out;
+  -moz-transition: 200ms ease-in-out;
+  -ms-transition: 200ms ease-in-out;
+  -o-transition: 200ms ease-in-out;
+}
+
+.searchResultPanel
+  .searchResultPanel__container
+  .searchResultPanel__name:hover {
+  transform: translateX(10px);
+  -webkit-transform: translateX(10px);
+  -moz-transform: translateX(10px);
+  -ms-transform: translateX(10px);
+  -o-transform: translateX(10px);
+}
