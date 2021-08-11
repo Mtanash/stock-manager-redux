@@ -1,5 +1,5 @@
 // react imports
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
 // firebase imports
 import { db } from "./firebase";
@@ -23,20 +23,30 @@ import "./Main.css";
 
 // material ui imports
 import AddCircleIcon from "@material-ui/icons/AddCircle";
+import SearchIcon from "@material-ui/icons/Search";
 
 // loader spinner imports
 import Loader from "react-loader-spinner";
 
 // react router imports
 import { useHistory } from "react-router-dom";
+import SearchResultPanel from "./SearchResultPanel";
+import {
+  selectSearchPanelIsOpen,
+  setSearchPanelIsOpen,
+  setSearchResult,
+} from "../features/searchSlice";
 
 function Main() {
   const items = useSelector(selectItems);
   const activeStock = useSelector(selectActiveStock);
   const addModalIsOpen = useSelector(selectAddModalIsOpen);
   const loading = useSelector(selectLoading);
+  const searchPanelIsOpen = useSelector(selectSearchPanelIsOpen);
   const dispatch = useDispatch();
   const history = useHistory();
+
+  const [searchInput, setSearchInput] = useState("");
 
   const fetchData = async () => {
     db.collection(activeStock.stockName)
@@ -101,6 +111,28 @@ function Main() {
       });
   };
 
+  const search = () => {
+    db.collection(activeStock.stockName)
+      .get()
+      .then((querySnapshot) => {
+        let resultArray = querySnapshot.docs.filter(
+          (doc) =>
+            doc.data().itemName.startsWith(searchInput) && searchInput !== ""
+        );
+        dispatch(
+          setSearchResult(
+            resultArray.map((doc) => {
+              return { id: doc.id, itemName: doc.data().itemName };
+            })
+          )
+        );
+      });
+  };
+
+  useEffect(() => {
+    search();
+  }, [searchInput]);
+
   useEffect(() => {
     fetchData();
     const timeout = setTimeout(() => {
@@ -122,6 +154,23 @@ function Main() {
         {addModalIsOpen && <AddModal />}
         <div className="main__header">
           <h2>{activeStock.stockName} stock</h2>
+          <div className="main__headerSearchBar">
+            <input
+              className="main__headerSearchInput"
+              type="text"
+              placeholder="Search"
+              value={searchInput}
+              onChange={(e) => setSearchInput(e.target.value.toLowerCase())}
+              onFocus={() => {
+                dispatch(setSearchPanelIsOpen(true));
+              }}
+              // onBlur={() => {
+              //   dispatch(setSearchPanelIsOpen(false));
+              // }}
+            />
+            <SearchIcon className="main__headerIcon" />
+            {searchPanelIsOpen && <SearchResultPanel />}
+          </div>
         </div>
         <div className="main__buttons">
           <div className="addBtn">

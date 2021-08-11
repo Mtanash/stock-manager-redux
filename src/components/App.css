@@ -1,9 +1,9 @@
 .app {
-  height: 100vh;
+  min-height: 100vh;
   position: relative;
 }
 
 .app__body {
   display: flex;
-  height: calc(100% - 73px);
+  min-height: calc(100vh - 73px);
 }

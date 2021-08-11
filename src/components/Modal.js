@@ -107,10 +107,12 @@ function Modal() {
           <form className="modal__form" onSubmit={handleSubmit}>
             <label htmlFor="num">Enter value</label>
             <input
+              onClick={(e) => e.target.select()}
               className="modal__formInput"
               id="num"
               type="number"
               min="1"
+              max="999"
               autoFocus
               required
               value={amount}
