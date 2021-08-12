@@ -15,6 +15,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { selectStocks } from "../features/stockSlice";
 import { selectLoading } from "../features/appSlice";
 import { setSearchPanelIsOpen } from "../features/searchSlice";
+import Snackbar from "./Snackbar";
 
 function App() {
   const loading = useSelector(selectLoading);
@@ -43,6 +44,7 @@ function App() {
           >
             <Header />
             <div className="app__body">
+              <Snackbar />
               <Sidebar />
               <Switch>
                 <Route exact path="/">

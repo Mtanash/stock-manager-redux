@@ -19,6 +19,7 @@ import { selectActiveStock } from "../features/stockSlice";
 // firebase imports
 import { db } from "./firebase";
 import firebase from "firebase";
+import { setSnackbar } from "../features/appSlice";
 
 function Modal() {
   const activeStock = useSelector(selectActiveStock);
@@ -39,7 +40,13 @@ function Modal() {
         itemCount: firebase.firestore.FieldValue.increment(amountInInt),
       })
       .then(() => {
-        // do something after update
+        dispatch(
+          setSnackbar({
+            isSnackbarOpen: true,
+            message: "Amount added successfuly!",
+            type: "success",
+          })
+        );
       })
       .catch((error) => {
         console.log(error);
@@ -58,12 +65,26 @@ function Modal() {
         itemCount: firebase.firestore.FieldValue.increment(-amountInInt),
       })
       .then(async () => {
-        // do something after update
+        dispatch(
+          setSnackbar({
+            isSnackbarOpen: true,
+            message: "Amount subtracted successfuly!",
+            type: "success",
+          })
+        );
         const count = await docRef.get().then((docs) => docs.data().itemCount);
         if (count < 1) {
           docRef
             .delete()
-            .then(() => {})
+            .then(() => {
+              dispatch(
+                setSnackbar({
+                  isSnackbarOpen: true,
+                  message: "Item deleted successfuly!",
+                  type: "success",
+                })
+              );
+            })
             .catch((error) => {
               console.log(error);
             });
@@ -82,6 +103,13 @@ function Modal() {
       subtractAmountFromItem(itemId, dateId, amount);
     } else {
       console.error(new Error("no modify action is recognized"));
+      dispatch(
+        setSnackbar({
+          isSnackbarOpen: true,
+          message: "no modify action is recognized!",
+          type: "error",
+        })
+      );
       return;
     }
     dispatch(setModalIsOpen(false));

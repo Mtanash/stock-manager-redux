@@ -3,6 +3,7 @@ import React, { useState } from "react";
 
 // material ui imports
 import CloseIcon from "@material-ui/icons/Close";
+import { Snackbar } from "@material-ui/core";
 
 // react hook form imports
 import { useForm } from "react-hook-form";
@@ -17,6 +18,7 @@ import "./AddModal.css";
 import { useDispatch, useSelector } from "react-redux";
 import { selectActiveStock } from "../features/stockSlice";
 import { closeAddModal } from "../features/addModalSlice";
+import { setSnackbar } from "../features/appSlice";
 
 function AddModal() {
   const dispatch = useDispatch();
@@ -97,6 +99,13 @@ function AddModal() {
         setMonth("");
         setYear("");
         dispatch(closeAddModal());
+        dispatch(
+          setSnackbar({
+            isSnackbarOpen: true,
+            message: `Added ${itemName} successfuly!`,
+            type: "success",
+          })
+        );
       })
       .catch((error) => {
         console.log(error);
@@ -111,6 +120,13 @@ function AddModal() {
         setMonth("");
         setYear("");
         dispatch(closeAddModal());
+        dispatch(
+          setSnackbar({
+            isSnackbarOpen: true,
+            message: "Updated item successfuly!",
+            type: "success",
+          })
+        );
       })
       .catch((error) => {
         console.log(error);
@@ -127,7 +143,15 @@ function AddModal() {
         itemCount: oldItemCount + newCount,
         timestamp: new Date().toLocaleString(),
       })
-      .then((docRef) => {})
+      .then((docRef) => {
+        dispatch(
+          setSnackbar({
+            isSnackbarOpen: true,
+            message: "Updated successfuly!",
+            type: "success",
+          })
+        );
+      })
       .catch((error) => {
         console.log(error);
       });
@@ -214,7 +238,20 @@ function AddModal() {
                 )}
               />
             </div>
-            <button type="submit"> Add </button>
+            <button
+              type="submit"
+              onClick={() =>
+                dispatch(
+                  setSnackbar({
+                    isSnackbarOpen: true,
+                    message: "Added new item successfuly!",
+                    type: "success",
+                  })
+                )
+              }
+            >
+              Add
+            </button>
             {errors.itemName && <p> Item name required </p>}
             {errors.itemDate && <p> Item date required </p>}
             {errors.itemCount && <p> Item count required </p>}
