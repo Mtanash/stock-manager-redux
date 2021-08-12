@@ -29,6 +29,7 @@ import RemoveIcon from "@material-ui/icons/Remove";
 
 // firebase imports
 import { db } from "./firebase";
+import { setSnackbar } from "../features/appSlice";
 
 function Item() {
   const { itemName, itemId, data } = useSelector(selectCurrentItem);
@@ -46,6 +47,15 @@ function Item() {
       .collection("data")
       .doc(dateId)
       .delete()
+      .then(() => {
+        dispatch(
+          setSnackbar({
+            isSnackbarOpen: true,
+            message: "Item deleted successfuly!",
+            type: "success",
+          })
+        );
+      })
       .catch((error) => {
         console.log(error);
       });

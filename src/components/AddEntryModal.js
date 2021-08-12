@@ -8,6 +8,7 @@ import {
   setAddEntryModalIsOpen,
 } from "../features/itemSlice";
 import { selectActiveStock } from "../features/stockSlice";
+import { setSnackbar } from "../features/appSlice";
 
 // css imports
 import "./AddEntryModal.css";
@@ -75,6 +76,13 @@ function AddEntryModal() {
           setMonth("");
           setYear("");
           dispatch(setAddEntryModalIsOpen(false));
+          dispatch(
+            setSnackbar({
+              isSnackbarOpen: true,
+              message: "Added new date successfuly",
+              type: "success",
+            })
+          );
         })
         .catch((error) => {
           console.log(error);
@@ -92,7 +100,7 @@ function AddEntryModal() {
     <div className="addEntryModal">
       <div className="addEntryModal__container">
         <div className="addEntryModal__header">
-          <h3> Add new entry </h3>
+          <h3> Add new date </h3>
           <button
             className="addEntryModal__closeBtn"
             onClick={() => dispatch(setAddEntryModalIsOpen(false))}
@@ -143,8 +151,6 @@ function AddEntryModal() {
               />
             </div>
             <button type="submit"> Add </button>
-            {errors.itemName && <p> Item name required </p>}
-            {errors.itemDate && <p> Item date required </p>}
             {errors.itemCount && <p> Item count required </p>}
           </form>
         </div>
