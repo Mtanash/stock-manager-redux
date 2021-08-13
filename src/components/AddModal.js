@@ -3,7 +3,6 @@ import React, { useState } from "react";
 
 // material ui imports
 import CloseIcon from "@material-ui/icons/Close";
-import { Snackbar } from "@material-ui/core";
 
 // react hook form imports
 import { useForm } from "react-hook-form";

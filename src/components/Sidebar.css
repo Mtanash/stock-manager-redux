@@ -61,3 +61,9 @@
 .sidebar__stockName > h4:hover {
   text-decoration: underline;
 }
+
+@media (max-width: 575.98px) {
+  .sidebar.sidebar--open {
+    width: 100%;
+  }
+}

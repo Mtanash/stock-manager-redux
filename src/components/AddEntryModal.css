@@ -142,3 +142,13 @@
   -ms-transform: translateY(1px);
   -o-transform: translateY(1px);
 }
+
+@media (max-width: 575.98px) {
+  .addEntryModal .addEntryModal__content > form {
+    width: 70%;
+  }
+  .addEntryModal .addEntryModal__container {
+    height: 250px;
+    margin: 40% auto;
+  }
+}

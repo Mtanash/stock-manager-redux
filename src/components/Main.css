@@ -108,3 +108,12 @@
   font-size: 0.7rem;
   font-weight: 500;
 }
+
+@media (max-width: 575.98px) {
+  .main .main__header .main__headerSearchBar {
+    width: 80%;
+  }
+  .main .main__header .main__headerSearchBar > input {
+    font-size: 1.2rem;
+  }
+}

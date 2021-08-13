@@ -112,3 +112,11 @@
   -o-transform: translateY(1px);
   -webkit-transform: translateY(1px);
 }
+
+@media (max-width: 575.98px) {
+  .modal .modal__container {
+    width: 75%;
+    height: 30%;
+    margin: 40% auto;
+  }
+}

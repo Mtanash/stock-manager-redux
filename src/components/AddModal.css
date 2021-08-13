@@ -125,3 +125,18 @@
   -ms-transform: translateY(1px);
   -o-transform: translateY(1px);
 }
+
+@media (max-width: 575.98px) {
+  .addModal .modal__content {
+    padding: 15px 5px;
+  }
+
+  .addModal .modal__content > form {
+    width: 70%;
+  }
+
+  .addModal__container {
+    height: 300px;
+    margin: 40% auto;
+  }
+}

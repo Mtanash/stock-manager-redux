@@ -150,55 +150,57 @@ function Main() {
     );
   } else {
     return (
-      <div className="main">
-        {addModalIsOpen && <AddModal />}
-        <div className="main__header">
-          <h2>{activeStock.stockName} stock</h2>
-          <div className="main__headerSearchBar">
-            <input
-              className="main__headerSearchInput"
-              type="text"
-              placeholder="Search"
-              value={searchInput}
-              onChange={(e) => setSearchInput(e.target.value.toLowerCase())}
-              onFocus={() => {
-                dispatch(setSearchPanelIsOpen(true));
-              }}
-              // onBlur={() => {
-              //   dispatch(setSearchPanelIsOpen(false));
-              // }}
-            />
-            <SearchIcon className="main__headerIcon" />
-            {searchPanelIsOpen && <SearchResultPanel />}
-          </div>
-        </div>
-        <div className="main__buttons">
-          <div className="addBtn">
-            <button onClick={() => dispatch(openAddModal())}>
-              <AddCircleIcon className="addBtnIcon" /> Add
-            </button>
-          </div>
-        </div>
-        <div className="main__items">
-          {items.map((item) => {
-            const { id, itemName, timestamp } = item;
-            return (
-              <div
-                key={id}
-                className="item"
-                onClick={() => {
-                  setItem(id, itemName);
+      <section className="main">
+        <div className="container">
+          {addModalIsOpen && <AddModal />}
+          <div className="main__header">
+            <h2>{activeStock.stockName} stock</h2>
+            <div className="main__headerSearchBar">
+              <input
+                className="main__headerSearchInput"
+                type="text"
+                placeholder="Search"
+                value={searchInput}
+                onChange={(e) => setSearchInput(e.target.value.toLowerCase())}
+                onFocus={() => {
+                  dispatch(setSearchPanelIsOpen(true));
                 }}
-              >
-                <div className="itemNameContainer">
-                  <h3 className="itemName"> {itemName} </h3>
+                // onBlur={() => {
+                //   dispatch(setSearchPanelIsOpen(false));
+                // }}
+              />
+              <SearchIcon className="main__headerIcon" />
+              {searchPanelIsOpen && <SearchResultPanel />}
+            </div>
+          </div>
+          <div className="main__buttons">
+            <div className="addBtn">
+              <button onClick={() => dispatch(openAddModal())}>
+                <AddCircleIcon className="addBtnIcon" /> Add
+              </button>
+            </div>
+          </div>
+          <div className="main__items">
+            {items.map((item) => {
+              const { id, itemName, timestamp } = item;
+              return (
+                <div
+                  key={id}
+                  className="item"
+                  onClick={() => {
+                    setItem(id, itemName);
+                  }}
+                >
+                  <div className="itemNameContainer">
+                    <h3 className="itemName"> {itemName} </h3>
+                  </div>
+                  <p className="item__timestamp">{timestamp}</p>
                 </div>
-                <p className="item__timestamp">{timestamp}</p>
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
         </div>
-      </div>
+      </section>
     );
   }
 }

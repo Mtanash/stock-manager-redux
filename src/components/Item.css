@@ -83,7 +83,7 @@
 }
 
 .itemPreview .item__data {
-  margin: 40px 15px;
+  margin: 40px 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -163,4 +163,23 @@
 .itemPreview .item__subtract:hover {
   background-color: #264653;
   color: #fff;
+}
+
+@media (max-width: 575.98px) {
+  .itemPreview .item__dateContainer {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 5px;
+  }
+  .itemPreview .item__timestamp {
+    grid-column: 1/3;
+    grid-row: 2/3;
+    place-self: center;
+  }
+
+  .itemPreview .item__add,
+  .itemPreview .item__subtract {
+    padding: 2px;
+  }
 }
